@@ -1,7 +1,7 @@
 {
-  "name": "CordelRPG",
-  "version": "1.0.0",
-  "description": "CSS compiler for the Cordel do sol encantado system",
+  "name": "cronicasrpg",
+  "version": "1.1.0",
+  "description": "CSS compiler for the Crônicas RPG system",
   "scripts": {
     "build": "gulp",
     "compile": "gulp css",
@@ -16,8 +16,8 @@
   "private": true,
   "dependencies": {
     "gulp": "^4.0.2",
-    "gulp-autoprefixer": "^7.0.1",
-    "gulp-sass": "^4.1.0",
-    "gulp-sourcemaps": "^2.6.5"
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-sass": "^5.0.0",
+    "gulp-sourcemaps": "^3.0.0"
   }
 }
