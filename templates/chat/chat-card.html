@@ -1,0 +1,24 @@
+<section class="cronicas-chat-card">
+    <div class="cell cell--chat">
+        <div class="dice-roll">
+            <h2 class="cell__title">{{title}}
+                {{#if dificuldade}}<span class="dificuldade" style="float: right;">
+                    <div class="valor-dificuldade" style="display: none;">{{dificuldade}}</div> {{{dificuldade}}}S
+                </span>{{/if}}
+                {{#if truque}}<span class="custo" style="float: right;">
+                    <div class="mana-cost" style="display: none;">{{custo}}</div><i>Truque</i>
+                </span>{{/if}}</h2>
+
+            <div class="dice-tooltip" style="display: block;">
+                <section class="tooltip-part">
+                    {{#if details}}<div class="row">{{{details}}}</div>{{/if}}
+                </section>
+            </div>
+        </div>
+        {{#if flavor}}<div class="row"><em>{{flavor}}</em></div>{{/if}}
+
+        {{#if roll}}
+        <div class="roll">{{{roll}}}</div>
+        {{/if}}
+    </div>
+</section>

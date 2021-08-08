@@ -1,0 +1,62 @@
+{
+  "name": "CordelRPG",
+  "title": "Cordel do Reino do sol encantado",
+  "description": "O sistema oficial do Cordel do Reino do sol encantado para FoundryVTT!",
+  "version": "1.0.0",
+  "minimumCoreVersion": "0.8.0",
+  "compatibleCoreVersion": "0.8.8",
+  "templateVersion": 2,
+  "author": "Coppolaop",
+  "esmodules": [
+    "module/cordelrpg.js"
+  ],
+  "styles": [
+    "css/cordelrpg.css"
+  ],
+  "scripts": [],
+  "packs": [
+    {
+      "name": "virtudes",
+      "label": "Virtudes",
+      "system": "CordelRPG",
+      "path": "./packs/virtudes.db",
+      "entity": "Item"
+    },
+    {
+      "name": "virtudes-unicas",
+      "label": "Virtudes Únicas",
+      "system": "CordelRPG",
+      "path": "./packs/virtudes-unicas.db",
+      "entity": "Item"
+    },
+    {
+      "name": "fraquezas",
+      "label": "Fraquezas",
+      "system": "CordelRPG",
+      "path": "./packs/fraquezas.db",
+      "entity": "Item"
+    },
+    {
+      "name": "fraquezas-exclusivas",
+      "label": "Fraquezas Exclusivas",
+      "system": "CordelRPG",
+      "path": "./packs/fraquezas-exclusivas.db",
+      "entity": "Item"
+    }
+  ],
+  "languages": [
+    {
+      "lang": "pt-BR",
+      "name": "Brazilian Portuguese",
+      "path": "lang/pt-BR.json"
+    }
+  ],
+  "gridDistance": 1,
+  "gridUnits": "m",
+  "primaryTokenAttribute": "",
+  "secondaryTokenAttribute": "",
+  "url": "https://github.com/coppolaop/CordelRPG",
+  "manifest": "https://github.com/coppolaop/CordelRPG/blob/master/system.json",
+  "download": "https://github.com/coppolaop/CordelRPG/archive/master.zip",
+  "license": "LICENSE.txt"
+}

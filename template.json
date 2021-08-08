@@ -1,0 +1,125 @@
+{
+  "Actor": {
+    "types": [
+      "character"
+    ],
+    "templates": {
+      "base": {
+        "vigor": {
+          "valor": 3,
+          "min": 0,
+          "max": 3
+        }
+      }
+    },
+    "character": {
+      "templates": [
+        "base"
+      ],
+      "info": {
+        "nivel": 1,
+        "classe": "",
+        "aparencia": ""
+      },
+      "biografia": {
+        "comportamento": "",
+        "historico": ""
+      },
+      "penalidades": {
+        "ferimento": 0,
+        "cansaco": 0
+      },
+      "movimentacao": {
+        "base": 4,
+        "penalidade": 0,
+        "outros": 0,
+        "total": 4
+      },
+      "atributos": {
+        "peleja": {
+          "valor": 2,
+          "outros": 0,
+          "total": 2,
+          "especializacoes": {}
+        },
+        "ligeireza": {
+          "valor": 2,
+          "outros": 0,
+          "total": 2,
+          "especializacoes": {}
+        },
+        "parrudice": {
+          "valor": 2,
+          "outros": 0,
+          "total": 2,
+          "especializacoes": {}
+        },
+        "estudo": {
+          "valor": 2,
+          "outros": 0,
+          "total": 2,
+          "especializacoes": {}
+        },
+        "esperteza": {
+          "valor": 2,
+          "outros": 0,
+          "total": 2,
+          "especializacoes": {}
+        },
+        "valentia": {
+          "valor": 2,
+          "outros": 0,
+          "total": 2,
+          "especializacoes": {}
+        }
+      }
+    }
+  },
+  "Item": {
+    "types": [
+      "posse",
+      "virtude",
+      "fraqueza",
+      "poder"
+    ],
+    "templates": {
+      "base": {
+        "descricao": ""
+      },
+      "objeto": {
+        "quantidade": 1,
+        "fardo": false,
+        "guardado": false,
+        "valor": 0
+      },
+      "personalidade": {
+        "especializacao": "",
+        "incremento": ""
+      }
+    },
+    "posse": {
+      "templates": [
+        "base",
+        "objeto"
+      ]
+    },
+    "virtude": {
+      "templates": [
+        "base",
+        "personalidade"
+      ]
+    },
+    "fraqueza": {
+      "templates": [
+        "base",
+        "personalidade"
+      ]
+    },
+    "poder": {
+      "templates": [
+        "base"
+      ],
+      "pontosGastos": 1
+    }
+  }
+}

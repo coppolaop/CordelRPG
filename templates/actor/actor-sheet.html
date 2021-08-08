@@ -1,0 +1,205 @@
+<div class="ficha-cordel actor">
+  <form class="{{cssClass}} flexcol" autocomplete="off">
+
+    {{!-- Sheet Header --}}
+    <header class="sheet-header actor">
+      <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.nome}}" height="100" width="100" />
+      <div class="header-fields">
+        <h1 class="charname"><input name="name" type="text" value="{{actor.name}}"
+            placeholder="{{localize 'CordelRPG.alcunha'}}" /></h1>
+        {{!-- The grid classes are defined in scss/global/_grid.scss. To use,
+        use both the "grid" and "grid-Ncol" class where "N" can be any number
+        from 1 to 12 and will create that number of columns. --}}
+        <div class="resources grid grid-2col">
+          {{!-- "flex-group-center" is also defined in the _grid.scss file
+          and it will add a small amount of padding, a border, and will
+          center all of its child elements content and text. --}}
+          <div class="infos resource flex-group-center">
+            <label>{{localize 'CordelRPG.dados'}}</label>
+            <input type="text" name="data.info.classe" value="{{data.data.info.classe}}" data-dtype="String" />
+            {{localize 'CordelRPG.classe'}}</label>
+            <input type="text" name="data.info.nivel" value="{{data.data.info.nivel}}" data-dtype="Number" />
+            {{localize 'CordelRPG.nivel'}}</label>
+          </div>
+          <div class="infos resource flex-group-center">
+            <label>{{localize 'CordelRPG.sofrimento'}}</label>
+            <label>
+              <input type="text" name="data.penalidades.ferimento" value="{{data.data.penalidades.ferimento}}"
+                data-dtype="String" />
+              {{localize 'CordelRPG.ferimento'}}
+            </label>
+            <label>
+              <input type="text" name="data.penalidades.cansaco" value="{{data.data.penalidades.cansaco}}"
+                data-dtype="String" />
+              {{localize 'CordelRPG.cansaco'}}
+            </label>
+          </div>
+    </header>
+
+    {{!-- Sheet Tab Navigation --}}
+    <nav class="sheet-tabs tabs" data-group="primary">
+      <a class="item" data-tab="attributes">{{localize 'CordelRPG.atributos'}}</a>
+      <a class="item" data-tab="personality">{{localize 'CordelRPG.personalidade'}}</a>
+      <a class="item" data-tab="biography">{{localize 'CordelRPG.biografia'}}</a>
+      <a class="item" data-tab="goods">{{localize 'CordelRPG.posses'}}</a>
+    </nav>
+
+    {{!-- Sheet Body --}}
+    <section class="sheet-body">
+
+      {{!-- Attributes Tab --}}
+      <div class="tab attributes" data-group="primary" data-tab="attributes">
+        <div class="grid grid-4col">
+          <p></p>
+          <p>{{localize 'CordelRPG.total'}}</p>
+          <p>{{localize 'CordelRPG.pontos'}}</p>
+          <p>{{localize 'CordelRPG.outros'}}</p>
+        </div>
+        {{#each data.data.atributos as |atributo key|}}
+        <div class="grid grid-4col">
+          <p class="rollable" data-roll="{{atributo.total}}d6" data-label="{{atributo.label}}">{{atributo.label}}
+          </p>
+          <p>{{atributo.total}}</p>
+          <input type="text" name="data.atributos.{{key}}.valor" value="{{atributo.valor}}" data-dtype="Number" />
+          <input type="text" name="data.atributos.{{key}}.outros" value="{{atributo.outros}}" data-dtype="Number" />
+        </div>
+        <hr>
+        {{/each}}
+      </div>
+
+      {{!-- Personality Tab --}}
+      <div class="tab personality" data-group="primary" data-tab="personality">
+        <div class="grid grid-2col">
+          <div class="virtudes">
+            <ol class="items-list">
+              <li class="item flexrow item-header flex-center">
+                <div>{{localize 'CordelRPG.virtudes'}}</div>
+              </li>
+              <li class="item flexrow item-header">
+                <div class="item-name">{{localize 'CordelRPG.nome'}}</div>
+                <div class="item-controls">
+                  <a class="item-control item-create" title="{{localize 'CordelRPG.novaVirtude'}}"
+                    data-type="virtude"><i class="fas fa-plus"></i>
+                    {{localize 'CordelRPG.novo'}}</a>
+                </div>
+              </li>
+              {{#each actor.data.virtudes as |item id|}}
+              <li class="item flexrow" data-item-id="{{item._id}}">
+                <div class="item-image" style="background-image: url('{{item.img}}')"></div>
+                <span class="rollable virtude-rollable" data-label="{{item.name}}">
+                  <h4 class="item-name">{{item.name}}</h4>
+                </span>
+                <div class="item-controls">
+                  <a class="item-control item-edit" title="{{localize 'CordelRPG.botoes.editarVirtude'}}"><i
+                      class="fas fa-edit"></i></a>
+                  <a class="item-control item-delete" title="{{localize 'CordelRPG.botoes.excluirVirtude'}}"><i
+                      class="fas fa-trash"></i></a>
+                </div>
+              </li>
+              {{/each}}
+            </ol>
+          </div>
+          <div class="fraquezas">
+            <ol class="items-list">
+              <li class="item flexrow item-header flex-center">
+                <div>{{localize 'CordelRPG.fraquezas'}}</div>
+              </li>
+              <li class="item flexrow item-header">
+                <div class="item-name">{{localize 'CordelRPG.nome'}}</div>
+                <div class="item-controls">
+                  <a class="item-control item-create" title="{{localize 'CordelRPG.novaFraqueza'}}"
+                    data-type="fraqueza"><i class="fas fa-plus"></i>
+                    {{localize 'CordelRPG.novo'}}</a>
+                </div>
+              </li>
+              {{#each actor.data.fraquezas as |item id|}}
+              <li class="item flexrow" data-item-id="{{item._id}}">
+                <div class="item-image" style="background-image: url('{{item.img}}')"></div>
+                <span class="rollable fraqueza-rollable" data-label="{{item.name}}">
+                  <h4 class="item-name">{{item.name}}</h4>
+                </span>
+                <div class="item-controls">
+                  <a class="item-control item-edit" title="{{localize 'CordelRPG.botoes.editarFraqueza'}}"><i
+                      class="fas fa-edit"></i></a>
+                  <a class="item-control item-delete" title="{{localize 'CordelRPG.botoes.excluirFraqueza'}}"><i
+                      class="fas fa-trash"></i></a>
+                </div>
+              </li>
+              {{/each}}
+            </ol>
+          </div>
+        </div>
+      </div>
+
+      {{!-- Biography Tab --}}
+      <div class="tab biography" data-group="primary" data-tab="biography">
+        <div class="infos resource flex-group-center">
+          <textarea type="text" class="smallTextArea" name="data.info.aparencia"
+            data-dtype="String">{{data.data.info.aparencia}}</textarea>
+          {{localize 'CordelRPG.info.aparencia'}}</label>
+        </div>
+        <div class="infos resource flex-group-center">
+          <textarea type="text" class="smallTextArea" name="data.biografia.comportamento"
+            data-dtype="String">{{data.data.biografia.comportamento}}</textarea>
+          {{localize 'CordelRPG.bio.comportamento'}}</label>
+        </div>
+        <div class="infos resource flex-group-center">
+          <textarea type="text" class="largeTextArea" name="data.biografia.historico"
+            data-dtype="String">{{data.data.biografia.historico}}</textarea>
+          {{localize 'CordelRPG.bio.historico'}}</label>
+        </div>
+      </div>
+
+      {{!-- Goods Tab --}}
+      <div class="tab goods" data-group="primary" data-tab="goods">
+        <div class="goods">
+          <ol class="items-list">
+            <li class="item flexrow item-header flex-center">
+              <div>{{localize 'CordelRPG.itens'}}</div>
+            </li>
+            {{#each actor.data.posses as |posse id|}}
+            <li class="item flexrow" data-item-id="{{posse._id}}">
+              <div class="item-image" style="background-image: url('{{posse.img}}')"></div>
+              <span class="rollable posse-rollable" data-label="{{posse.name}}">
+                <h4 class="item-name">{{posse.name}}</h4>
+              </span>
+              <div class="item-controls">
+                <a class="item-control item-toggle toggle-carried{{#if posse.data.guardado}} active{{/if}}"
+                  title="{{#if posse.data.guardado}}Recuperar{{else}}Guardar{{/if}}">
+                  <i class="fas fa-horse-head"></i>
+                </a>
+                <a class="item-control item-edit" title="{{localize 'CordelRPG.botoes.editarPosse'}}"><i
+                    class="fas fa-edit"></i></a>
+                <a class="item-control item-delete" title="{{localize 'CordelRPG.botoes.excluirPosse'}}"><i
+                    class="fas fa-trash"></i></a>
+              </div>
+            </li>
+            {{/each}}
+          </ol>
+        </div>
+
+    </section>
+
+    <script>
+      var acc = document.getElementsByClassName("accordion");
+      var i;
+
+      for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function () {
+          /* Toggle between adding and removing the "active" class,
+          to highlight the button that controls the panel */
+          this.classList.toggle("active");
+
+          /* Toggle between hiding and showing the active panel */
+          var panel = this.nextElementSibling;
+          if (panel.style.display == "block") {
+            panel.style.display = "none";
+          } else {
+            panel.style.display = "block";
+          }
+        });
+      }
+    </script>
+
+  </form>
+</div>
