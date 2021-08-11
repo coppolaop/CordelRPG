@@ -81,8 +81,7 @@
     "types": [
       "posse",
       "virtude",
-      "fraqueza",
-      "poder"
+      "fraqueza"
     ],
     "templates": {
       "base": {
@@ -116,12 +115,6 @@
         "base",
         "personalidade"
       ]
-    },
-    "poder": {
-      "templates": [
-        "base"
-      ],
-      "pontosGastos": 1
     }
   }
 }
