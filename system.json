@@ -53,7 +53,7 @@
   ],
   "gridDistance": 1,
   "gridUnits": "m",
-  "primaryTokenAttribute": "",
+  "primaryTokenAttribute": "attributes.vigor",
   "secondaryTokenAttribute": "",
   "url": "https://github.com/coppolaop/CordelRPG",
   "manifest": "https://github.com/coppolaop/CordelRPG/blob/master/system.json",

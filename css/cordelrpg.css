@@ -126,7 +126,7 @@ p {
   justify-content: space-between;
 }
 
-.sheet nav.sheet-tabs {
+.sheet .actor nav.sheet-tabs {
   margin: 4px 50px 4px 50px;
 }
 
@@ -154,8 +154,6 @@ p {
 
 .CordelRPG .sheet-header.actor {
   -webkit-box-flex: 0;
-  -ms-flex: 0 0 210px;
-  flex: 0 0 210px;
   overflow: hidden;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -169,7 +167,7 @@ p {
   -webkit-box-pack: start;
   -ms-flex-pack: start;
   justify-content: flex-start;
-  margin: 60px 50px 0 50px;
+  margin: 100px 50px 10px 50px;
 }
 
 .CordelRPG .sheet-header.item {
@@ -180,7 +178,7 @@ p {
   -webkit-box-flex: 0;
   -ms-flex: 0 0 100px;
   flex: 0 0 100px;
-  height: 100px;
+  height: 110px;
   margin-right: 10px;
 }
 
@@ -290,12 +288,12 @@ p {
 }
 
 .CordelRPG .largeTextArea {
-  height: 6.3rem;
+  height: 7.3rem;
   text-align: initial;
 }
 
 .CordelRPG .smallTextArea {
-  height: 3.6rem;
+  height: 4.5rem;
 }
 
 .CordelRPG .die-icon {

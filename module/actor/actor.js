@@ -10,15 +10,8 @@ export class CronicasActor extends Actor {
   prepareData() {
     super.prepareData();
 
+    this._evaluateHealth();
     this._evaluateAttributes();
-
-    if (game.settings.get("CordelRPG", "autoCalcExp")) {
-      //this._evaluateExperience();
-    }
-
-    if (game.settings.get("CordelRPG", "autoCalcPen")) {
-      //this._evaluatePenalties();
-    }
   }
 
   /**
@@ -26,64 +19,38 @@ export class CronicasActor extends Actor {
    */
   _evaluateAttributes() {
     const data = this.data.data;
-
     for (let [key, atributo] of Object.entries(data.atributos)) {
-      atributo.total = atributo.valor + atributo.outros - data.penalidades.ferimento - data.penalidades.cansaco;
+      atributo.total = atributo.valor + atributo.outros - data.penalidades.ferimento;
     }
   }
 
   /**
-   * Calculate Character spent experience according to his actual attributes and specializations spent points
+   * Prepare Character health bar and suffering status
    */
-  _evaluateExperience() {
+  _evaluateHealth() {
     const data = this.data.data;
-    data.pontos.experiencia.gasta = 0;
-    for (let [key, atributo] of Object.entries(data.atributos)) {
-      data.pontos.experiencia.gasta += ((atributo.valor - 2) * 30);
-      for (let [key, especializacao] of Object.entries(atributo.especializacoes)) {
-        data.pontos.experiencia.gasta += (especializacao.valor * 10);
-      }
-    }
-    data.pontos.experiencia.resto = data.pontos.experiencia.valor - data.pontos.experiencia.gasta;
-  }
+    console.log(data)
+    const parrudice = data.atributos.parrudice.valor;
+    data.attributes.vigor.max = 1 + parrudice;
 
-  /**
-   * Prepare Character penalties according to his actual vigor
-   */
-  _evaluatePenalties() {
-    const data = this.data.data;
-    //Fisico (ferimento)
-    let calculoVigor = (data.combate.fisico.vigor * 3) / ((data.combate.fisico.vigor * 2) + data.combate.fisico.vigorAtual);
-    if (calculoVigor < 0 || calculoVigor == Infinity) {
-      data.penalidades.ferimento = 3;
-    } else if (calculoVigor < 1.5) {
+    if (data.attributes.vigor.value > data.attributes.vigor.max) {
+      data.attributes.vigor.value = data.attributes.vigor.max;
+    }
+
+    if (data.penalidades.ferimento < 0) {
       data.penalidades.ferimento = 0;
-    } else if (calculoVigor < 3) {
-      data.penalidades.ferimento = 1;
-    } else {
-      data.penalidades.ferimento = 2;
     }
-    //Mental (frustracao)
-    calculoVigor = (data.combate.mental.vigor * 3) / ((data.combate.mental.vigor * 2) + data.combate.mental.vigorAtual);
-    if (calculoVigor < 0 || calculoVigor == Infinity) {
-      data.penalidades.frustracao = 3;
-    } else if (calculoVigor < 1.5) {
-      data.penalidades.frustracao = 0;
-    } else if (calculoVigor < 3) {
-      data.penalidades.frustracao = 1;
+
+    if (data.penalidades.ferimento == data.penalidades.danoRecebido) {
+      data.penalidades.ferimento = data.attributes.vigor.max - data.attributes.vigor.value;
+      data.penalidades.danoRecebido = data.attributes.vigor.max - data.attributes.vigor.value;
+      data.attributes.vigor.value = data.attributes.vigor.max - data.penalidades.ferimento;
     } else {
-      data.penalidades.frustracao = 2;
+      data.attributes.vigor.value = data.attributes.vigor.max - data.penalidades.ferimento;
+      data.penalidades.danoRecebido = data.attributes.vigor.max - data.attributes.vigor.value;
+      data.penalidades.ferimento = data.attributes.vigor.max - data.attributes.vigor.value;
     }
-    //Social (hesitacao)
-    calculoVigor = (data.combate.social.vigor * 3) / ((data.combate.social.vigor * 2) + data.combate.social.vigorAtual);
-    if (calculoVigor < 0 || calculoVigor == Infinity) {
-      data.penalidades.hesitacao = 3;
-    } else if (calculoVigor < 1.5) {
-      data.penalidades.hesitacao = 0;
-    } else if (calculoVigor < 3) {
-      data.penalidades.hesitacao = 1;
-    } else {
-      data.penalidades.hesitacao = 2;
-    }
+
+    this.data.update({ data: data })
   }
 }

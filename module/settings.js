@@ -33,30 +33,6 @@ export const SystemSettings = function () {
   });
 
   /**
-   * Automatic spend of actions
-   */
-  // game.settings.register("CordelRPG", "automaticActionSpend", {
-  //   name: game.i18n.localize("CordelRPG.settings.automaticActionSpend.name"),
-  //   hint: game.i18n.localize("CordelRPG.settings.automaticActionSpend.hint"),
-  //   scope: "world",
-  //   config: true,
-  //   default: true,
-  //   type: Boolean
-  // });
-
-  /**
-   * Option to disable initiative roll after end of turn.
-   */
-  // game.settings.register("CordelRPG", "autoRoll", {
-  //   name: game.i18n.localize("CordelRPG.settings.autoroll.name"),
-  //   hint: game.i18n.localize("CordelRPG.settings.autoroll.hint"),
-  //   scope: "world",
-  //   config: true,
-  //   default: true,
-  //   type: Boolean,
-  // });
-
-  /**
    * Option to disable automatic calculation of spent experience.
    */
   game.settings.register("CordelRPG", "autoCalcExp", {
@@ -67,17 +43,4 @@ export const SystemSettings = function () {
     default: true,
     type: Boolean,
   });
-
-  /**
-   * Option to disable automatic calculation of penalties.
-   */
-  game.settings.register("CordelRPG", "autoCalcPen", {
-    name: game.i18n.localize("CordelRPG.settings.autoCalcPen.name"),
-    hint: game.i18n.localize("CordelRPG.settings.autoCalcPen.hint"),
-    scope: "world",
-    config: true,
-    default: true,
-    type: Boolean,
-  });
-
 }

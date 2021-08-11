@@ -89,10 +89,6 @@ export class CronicasActorSheet extends ActorSheet {
     // Everything below here is only needed if the sheet is editable
     if (!this.options.editable) return;
 
-    // Update Inventory Item
-    html.find('.toggle-equipped').click(this._onToggleEquipped.bind(this));
-    html.find('.toggle-carried').click(this._onToggleCarried.bind(this));
-
 
     // Add Inventory Item
     html.find('.item-create').click(this._onItemCreate.bind(this));
@@ -122,25 +118,6 @@ export class CronicasActorSheet extends ActorSheet {
         if (li.classList.contains("inventory-header")) return;
         li.setAttribute("draggable", true);
         li.addEventListener("dragstart", handler, false);
-      });
-    }
-
-    for (let [key, atributo] of Object.entries(data.atributos)) {
-      if (localStorage.getItem('accordion-' + key) == 'true') {
-        html.find('#accordion-' + key).click();
-      }
-      html.on('keyup keypress', function (e) {
-        var keyCode = e.keyCode || e.which;
-        if (keyCode == 13 && e.target.type != "textarea") {
-          e.preventDefault();
-        }
-      });
-      html.find('#accordion-' + key).on('click', function () {
-        if (localStorage.getItem('accordion-' + key) == 'true') {
-          localStorage.removeItem('accordion-' + key);
-        } else {
-          localStorage.setItem('accordion-' + key, true);
-        }
       });
     }
   }

@@ -19,8 +19,6 @@
     "CordelRPG.novo": "Novo",
     "CordelRPG.base": "Base",
     "CordelRPG.sofrimento": "Sofrimento",
-    "CordelRPG.ferimento": "Letal",
-    "CordelRPG.cansaco": "Não Letal",
     "CordelRPG.info.aparencia": "Aparência",
     "CordelRPG.bio.comportamento": "Comportamento",
     "CordelRPG.bio.historico": "Histórico",
@@ -56,7 +54,5 @@
     "CordelRPG.settings.baseMovement.name": "Movimento Base",
     "CordelRPG.settings.baseMovement.hint": "Configura, em metros, o movimento base dos personagens.",
     "CordelRPG.settings.autoroll.name": "Rolagem automática de iniciativa",
-    "CordelRPG.settings.autoroll.hint": "Ao invés de utilizar rolagem manual de iniciativa, o sistema rola automaticamente as iniciativas no inicio de cada turno.",
-    "CordelRPG.settings.autoCalcPen.name": "Cálculo automático de penalidades",
-    "CordelRPG.settings.autoCalcPen.hint": "Sistema realiza o cálculo automático das penalidades com base no vigor atual e total, para todos os três tipos de combate (Físico, Mental e Social)."
+    "CordelRPG.settings.autoroll.hint": "Ao invés de utilizar rolagem manual de iniciativa, o sistema rola automaticamente as iniciativas no inicio de cada turno."
 }

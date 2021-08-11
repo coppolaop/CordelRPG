@@ -21,8 +21,8 @@ Hooks.once('init', async function () {
    * @type {String}
    */
   CONFIG.Combat.initiative = {
-    formula: "1d6 + @combate.fisico.iniciativa",
-    decimals: 2
+    formula: "1d6",
+    decimals: 1
   };
 
   // Register System Settings
@@ -108,35 +108,6 @@ Hooks.on("canvasInit", function () {
 /* -------------------------------------------- */
 
 Hooks.on("renderSidebarTab", async (object, html) => {
-  var arrayTipoCombate = ["fisico", "mental", "social"];
-  var tipoCombate = localStorage.getItem('tipoCombate');
-  if (tipoCombate == "") {
-    tipoCombate = arrayTipoCombate[0];
-  }
-
-  // Initiative according to combat type
-  CONFIG.Combat.initiative.formula = "1d6 + @combate." + tipoCombate + ".iniciativa";
-
-  // Creating Select on CombatTab
-  var select = document.createElement('select');
-  select.id = "selectTipoCombate";
-  html.find('#combat-round').append(select);
-  for (var i = 0; i < arrayTipoCombate.length; i++) {
-    var option = document.createElement("option");
-    option.value = arrayTipoCombate[i];
-    option.text = game.i18n.localize("CordelRPG." + arrayTipoCombate[i]);
-    if (arrayTipoCombate[i] == tipoCombate) {
-      option.selected = true;
-    }
-    select.appendChild(option);
-  }
-  // When the select value is changed
-  select.onchange = function () {
-    tipoCombate = select.value
-    localStorage.setItem("tipoCombate", tipoCombate);
-    CONFIG.Combat.initiative.formula = "1d6 + @combate." + tipoCombate + ".iniciativa"
-  };
-
   if (object instanceof Settings) {
     let gamesystem = html.find("#game-details");
     // License text

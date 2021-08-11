@@ -5,10 +5,12 @@
     ],
     "templates": {
       "base": {
-        "vigor": {
-          "valor": 3,
-          "min": 0,
-          "max": 3
+        "attributes": {
+          "vigor": {
+            "value": 3,
+            "min": 0,
+            "max": 3
+          }
         }
       }
     },
@@ -27,7 +29,7 @@
       },
       "penalidades": {
         "ferimento": 0,
-        "cansaco": 0
+        "danoRecebido": 0
       },
       "movimentacao": {
         "base": 4,
