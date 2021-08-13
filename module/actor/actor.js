@@ -29,8 +29,11 @@ export class CronicasActor extends Actor {
    */
   _evaluateHealth() {
     const data = this.data.data;
-    console.log(data)
     const parrudice = data.atributos.parrudice.valor;
+
+    if (data.attributes.vigor.max != (1 + parrudice)) {
+      data.attributes.vigor.value -= data.attributes.vigor.max - (1 + parrudice);
+    }
     data.attributes.vigor.max = 1 + parrudice;
 
     if (data.attributes.vigor.value > data.attributes.vigor.max) {
@@ -44,7 +47,6 @@ export class CronicasActor extends Actor {
     if (data.penalidades.ferimento == data.penalidades.danoRecebido) {
       data.penalidades.ferimento = data.attributes.vigor.max - data.attributes.vigor.value;
       data.penalidades.danoRecebido = data.attributes.vigor.max - data.attributes.vigor.value;
-      data.attributes.vigor.value = data.attributes.vigor.max - data.penalidades.ferimento;
     } else {
       data.attributes.vigor.value = data.attributes.vigor.max - data.penalidades.ferimento;
       data.penalidades.danoRecebido = data.attributes.vigor.max - data.attributes.vigor.value;
