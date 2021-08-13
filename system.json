@@ -16,31 +16,17 @@
   "scripts": [],
   "packs": [
     {
-      "name": "virtudes",
-      "label": "Virtudes",
+      "name": "vantagens",
+      "label": "Vantagens",
       "system": "CordelRPG",
-      "path": "./packs/virtudes.db",
+      "path": "./packs/vantagens.db",
       "entity": "Item"
     },
     {
-      "name": "virtudes-unicas",
-      "label": "Virtudes Únicas",
+      "name": "desvantagens",
+      "label": "Desvantagens",
       "system": "CordelRPG",
-      "path": "./packs/virtudes-unicas.db",
-      "entity": "Item"
-    },
-    {
-      "name": "fraquezas",
-      "label": "Fraquezas",
-      "system": "CordelRPG",
-      "path": "./packs/fraquezas.db",
-      "entity": "Item"
-    },
-    {
-      "name": "fraquezas-exclusivas",
-      "label": "Fraquezas Exclusivas",
-      "system": "CordelRPG",
-      "path": "./packs/fraquezas-exclusivas.db",
+      "path": "./packs/desvantagens.db",
       "entity": "Item"
     }
   ],

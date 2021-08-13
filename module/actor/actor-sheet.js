@@ -52,20 +52,20 @@ export class CronicasActorSheet extends ActorSheet {
     const actorData = sheetData.actor.data;
 
     // Initialize containers.
-    const virtudes = [];
-    const fraquezas = [];
+    const vantagens = [];
+    const desvantagens = [];
     const posses = [];
 
     // Iterate through items, allocating to containers
     for (let i of sheetData.items) {
       i.img = i.img || DEFAULT_TOKEN;
       // Append to virtues.
-      if (i.type == 'virtude') {
-        virtudes.push(i);
+      if (i.type == 'vantagem') {
+        vantagens.push(i);
       }
       // Append to weakness.
-      if (i.type == 'fraqueza') {
-        fraquezas.push(i);
+      if (i.type == 'desvantagem') {
+        desvantagens.push(i);
       }
       // Append to goods.
       if (i.type == 'posse') {
@@ -74,8 +74,8 @@ export class CronicasActorSheet extends ActorSheet {
     }
 
     // Assign and return
-    actorData.virtudes = virtudes;
-    actorData.fraquezas = fraquezas;
+    actorData.vantagens = vantagens;
+    actorData.desvantagens = desvantagens;
     actorData.posses = posses;
   }
 
@@ -189,7 +189,7 @@ export class CronicasActorSheet extends ActorSheet {
       rollType = "iniciativa";
     }
 
-    if (itemId && ($(a).hasClass('virtude-rollable') || $(a).hasClass('fraqueza-rollable') || $(a).hasClass('posse-rollable') || $(a).hasClass('acao-rollable'))) {
+    if (itemId && ($(a).hasClass('vantagem-rollable') || $(a).hasClass('desvantagem-rollable') || $(a).hasClass('posse-rollable') || $(a).hasClass('acao-rollable'))) {
       item = actor.items.get(itemId);
       item.roll = dataset.roll;
       item.label = dataset.label;

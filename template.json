@@ -80,8 +80,8 @@
   "Item": {
     "types": [
       "posse",
-      "virtude",
-      "fraqueza"
+      "vantagem",
+      "desvantagem"
     ],
     "templates": {
       "base": {
@@ -104,13 +104,13 @@
         "objeto"
       ]
     },
-    "virtude": {
+    "vantagem": {
       "templates": [
         "base",
         "personalidade"
       ]
     },
-    "fraqueza": {
+    "desvantagem": {
       "templates": [
         "base",
         "personalidade"
