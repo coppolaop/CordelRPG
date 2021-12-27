@@ -4,7 +4,7 @@
   "description": "O sistema oficial do Cordel do Reino do sol encantado para FoundryVTT!",
   "version": "1.0.0",
   "minimumCoreVersion": "0.8.0",
-  "compatibleCoreVersion": "0.8.8",
+  "compatibleCoreVersion": "9",
   "templateVersion": 2,
   "author": "Coppolaop",
   "esmodules": [
