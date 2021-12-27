@@ -21,13 +21,6 @@
       "system": "CordelRPG",
       "path": "./packs/vantagens.db",
       "entity": "Item"
-    },
-    {
-      "name": "desvantagens",
-      "label": "Desvantagens",
-      "system": "CordelRPG",
-      "path": "./packs/desvantagens.db",
-      "entity": "Item"
     }
   ],
   "languages": [
