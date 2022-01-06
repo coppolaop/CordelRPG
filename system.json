@@ -2,7 +2,7 @@
   "name": "CordelRPG",
   "title": "Cordel do Reino do sol encantado",
   "description": "O sistema oficial do Cordel do Reino do sol encantado para FoundryVTT!",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "minimumCoreVersion": "0.8.0",
   "compatibleCoreVersion": "9",
   "templateVersion": 2,

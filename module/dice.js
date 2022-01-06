@@ -125,6 +125,7 @@ function rollCordel(roll, actor, templateData, actionType = {}) {
         //counting success
         roll = roll.trim().replace(/([\+])/g, " +").replace(/([\-])/g, " -");
         const dados = roll.split(" ");
+        let rollQuantity = 0
         roll = "";
         dados.forEach(function (dado) {
             if (dado.match(/.*[sS].*/g)) {
@@ -138,10 +139,16 @@ function rollCordel(roll, actor, templateData, actionType = {}) {
                     let quantidade = dado.split("d")[0];
                     for (let i = 0; i < quantidade; i++) {
                         roll += "+1d6";
+                        rollQuantity++;
                     }
                 }
             }
         })
+
+        if (rollQuantity != 0 && actionType != "iniciativa") {
+            roll = rollQuantity;
+            roll = roll + "d6cs>3";
+        }
 
         templateData.dificuldade = dificuldade;
 
@@ -217,22 +224,17 @@ Hooks.on('renderChatMessage', (message, html, data) => {
     if (!message.roll || message.data.content.includes(game.i18n.localize("CordelRPG.iniciativa"))) return;
     if (message.data.flavor && message.data.flavor.includes("Initiative")) return;
 
-    const dados = message.roll.result.replace(/ /g, "").replace(/\+/g, " ").split(" ");
-
     let sucessos = Number(html.find('.valor-dificuldade').text());
+    sucessos += Number(message.roll.result);
     let critico = false;
     let falha = false;
     let sucessoMsg = game.i18n.localize("CordelRPG.sucessoMsgPlural");
 
-    dados.forEach(function (result) {
-        if (result == 1) {
-            falha = true;
-        }
-        else if (result == 4 || result == 5) {
-            sucessos++;
-        } else if (result == 6) {
-            sucessos++;
-            critico = true;
+    message.roll.dice[0].results.forEach(function (die) {
+        if (die.result == 1) {
+            falha = true
+        } else if (die.result == 6) {
+            critico = true
         }
     });
 
