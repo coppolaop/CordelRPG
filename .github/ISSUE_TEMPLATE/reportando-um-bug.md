@@ -25,7 +25,7 @@ Se for possível e você julgar necessário, adicione prints para nos facilitar 
 
 **Por favor, complete as seguintes informações:**
  - Seu Sistema Operacional: [e.g. iOS]
- - A versão que você está utilizando do Sistema Cordel do sol encantado: [e.g. 1.1.0] (tente sempre utilizar a última)
+ - A versão que você está utilizando do Sistema Cordel do sol encantado: [e.g. 1.0.0] (tente sempre utilizar a última)
 
 **Informações adicionais**
 Acrescente aqui qualquer outra informação que você acredita ser útil.
