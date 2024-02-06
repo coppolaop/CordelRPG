@@ -8,7 +8,7 @@ export const measureDistances = function (segments, options = {}) {
   const d = canvas.dimensions;
 
   // Iterate over measured segments
-  return segments.map(s => {
+  return segments.map((s) => {
     let r = s.ray;
     nDiagonal = 0;
 
@@ -21,11 +21,11 @@ export const measureDistances = function (segments, options = {}) {
     let ns = Math.abs(ny - nx);
     nDiagonal += nd;
 
-    if (rule == "PATHFINDER") {
+    if (rule == 'PATHFINDER') {
       let nd10 = Math.floor(nDiagonal / 2) - Math.floor((nDiagonal - nd) / 2);
-      let spaces = (nd10 * 2) + (nd - nd10) + ns;
+      let spaces = nd10 * 2 + (nd - nd10) + ns;
       return spaces * canvas.dimensions.distance;
-    } else if (rule == "EQUIDISTANT") {
+    } else if (rule == 'EQUIDISTANT') {
       return (ns + nd) * canvas.scene.data.gridDistance;
     }
 
