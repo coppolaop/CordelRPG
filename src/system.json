@@ -1,26 +1,27 @@
 {
-  "name": "CordelRPG",
-  "title": "Cordel do Reino do sol encantado",
+  "name": "cordelrpg",
+  "title": "Cordel do Reino do Sol Encantado",
   "description": "O sistema oficial do Cordel do Reino do sol encantado para FoundryVTT!",
-  "version": "1.0.2",
-  "minimumCoreVersion": "0.8.0",
-  "compatibleCoreVersion": "9",
+  "version": "This is auto replaced",
+  "compatibility": {
+    "minimum": "11",
+    "verified": "11"
+  },
   "templateVersion": 2,
   "author": "Coppolaop",
   "esmodules": [
     "module/cordelrpg.js"
   ],
   "styles": [
-    "css/cordelrpg.css"
+    "styles/cordelrpg.css"
   ],
   "scripts": [],
   "packs": [
     {
       "name": "vantagens",
       "label": "Vantagens",
-      "system": "CordelRPG",
       "path": "./packs/vantagens.db",
-      "entity": "Item"
+      "type": "Item"
     }
   ],
   "languages": [
@@ -40,7 +41,7 @@
   "primaryTokenAttribute": "attributes.vigor",
   "secondaryTokenAttribute": "",
   "url": "https://github.com/coppolaop/CordelRPG",
-  "manifest": "https://github.com/coppolaop/CordelRPG/blob/master/system.json",
-  "download": "https://github.com/coppolaop/CordelRPG/archive/master.zip",
+  "manifest": "This is auto replaced",
+  "download": "This is auto replaced",
   "license": "LICENSE.txt"
 }
