@@ -18,18 +18,18 @@
           <div class="grid grid-3col">
             <div class="flex-group-center">
               <label>
-                <input type="text" name="data.info.classe" value="{{data.data.info.classe}}" data-dtype="String" />
+                <input type="text" name="system.info.classe" value="{{data.system.info.classe}}" data-dtype="String" />
                 {{localize 'CordelRPG.classe'}}</label>
             </div>
             <div class="flex-group-center">
               <label>
-                <input type="text" name="data.info.nivel" value="{{data.data.info.nivel}}" data-dtype="Number"
+                <input type="text" name="system.info.nivel" value="{{data.system.info.nivel}}" data-dtype="Number"
                   width="100" /><br />
                 {{localize 'CordelRPG.nivel'}}</label>
             </div>
             <div class="flex-group-center">
               <label>
-                <input type="text" name="data.penalidades.ferimento" value="{{data.data.penalidades.ferimento}}"
+                <input type="text" name="system.penalidades.ferimento" value="{{data.system.penalidades.ferimento}}"
                   data-dtype="String" />
                 {{localize 'CordelRPG.sofrimento'}}
               </label>
@@ -56,13 +56,13 @@
           <p>{{localize 'CordelRPG.pontos'}}</p>
           <p>{{localize 'CordelRPG.outros'}}</p>
         </div>
-        {{#each data.data.atributos as |atributo key|}}
+        {{#each data.system.atributos as |atributo key|}}
         <div class="grid grid-4col">
           <p class="rollable" data-roll="{{atributo.total}}d6" data-label="{{atributo.label}}">{{atributo.label}}
           </p>
           <p>{{atributo.total}}</p>
-          <input type="text" name="data.atributos.{{key}}.valor" value="{{atributo.valor}}" data-dtype="Number" />
-          <input type="text" name="data.atributos.{{key}}.outros" value="{{atributo.outros}}" data-dtype="Number" />
+          <input type="text" name="system.atributos.{{key}}.valor" value="{{atributo.valor}}" data-dtype="Number" />
+          <input type="text" name="system.atributos.{{key}}.outros" value="{{atributo.outros}}" data-dtype="Number" />
         </div>
         <hr>
         {{/each}}
@@ -84,7 +84,7 @@
                     {{localize 'CordelRPG.novo'}}</a>
                 </div>
               </li>
-              {{#each actor.data.vantagens as |item id|}}
+              {{#each actor.system.vantagens as |item id|}}
               <li class="item flexrow" data-item-id="{{item._id}}">
                 <div class="item-image" style="background-image: url('{{item.img}}')"></div>
                 <span class="rollable vantagem-rollable" data-label="{{item.name}}">
@@ -113,7 +113,7 @@
                     {{localize 'CordelRPG.novo'}}</a>
                 </div>
               </li>
-              {{#each actor.data.desvantagens as |item id|}}
+              {{#each actor.system.desvantagens as |item id|}}
               <li class="item flexrow" data-item-id="{{item._id}}">
                 <div class="item-image" style="background-image: url('{{item.img}}')"></div>
                 <span class="rollable desvantagem-rollable" data-label="{{item.name}}">
@@ -135,18 +135,18 @@
       {{!-- Biography Tab --}}
       <div class="tab biography" data-group="primary" data-tab="biography">
         <div class="infos resource flex-group-center">
-          <textarea type="text" class="smallTextArea" name="data.info.aparencia"
-            data-dtype="String">{{data.data.info.aparencia}}</textarea>
+          <textarea type="text" class="smallTextArea" name="system.info.aparencia"
+            data-dtype="String">{{data.system.info.aparencia}}</textarea>
           {{localize 'CordelRPG.info.aparencia'}}</label>
         </div>
         <div class="infos resource flex-group-center">
-          <textarea type="text" class="smallTextArea" name="data.biografia.comportamento"
-            data-dtype="String">{{data.data.biografia.comportamento}}</textarea>
+          <textarea type="text" class="smallTextArea" name="system.biografia.comportamento"
+            data-dtype="String">{{data.system.biografia.comportamento}}</textarea>
           {{localize 'CordelRPG.bio.comportamento'}}</label>
         </div>
         <div class="infos resource flex-group-center">
-          <textarea type="text" class="largeTextArea" name="data.biografia.historico"
-            data-dtype="String">{{data.data.biografia.historico}}</textarea>
+          <textarea type="text" class="largeTextArea" name="system.biografia.historico"
+            data-dtype="String">{{data.system.biografia.historico}}</textarea>
           {{localize 'CordelRPG.bio.historico'}}</label>
         </div>
       </div>
@@ -155,15 +155,15 @@
       <div class="tab goods" data-group="primary" data-tab="goods">
         <div class="goods">
           <ol class="items-list">
-            {{#each actor.data.posses as |posse id|}}
+            {{#each actor.system.posses as |posse id|}}
             <li class="item flexrow" data-item-id="{{posse._id}}">
               <div class="item-image" style="background-image: url('{{posse.img}}')"></div>
               <span class="rollable posse-rollable" data-label="{{posse.name}}">
                 <h4 class="item-name">{{posse.name}}</h4>
               </span>
               <div class="item-controls">
-                <a class="item-control item-toggle toggle-carried{{#if posse.data.guardado}} active{{/if}}"
-                  title="{{#if posse.data.guardado}}Recuperar{{else}}Guardar{{/if}}">
+                <a class="item-control item-toggle toggle-carried{{#if posse.system.guardado}} active{{/if}}"
+                  title="{{#if posse.system.guardado}}Recuperar{{else}}Guardar{{/if}}">
                   <i class="fas fa-horse-head"></i>
                 </a>
                 <a class="item-control item-edit" title="{{localize 'CordelRPG.botoes.editarPosse'}}"><i

@@ -18,7 +18,7 @@ export class CronicasItemSheet extends ItemSheet {
   get template() {
     const path = "systems/CordelRPG/templates/item";
 
-    return `${path}/${this.item.data.type}-sheet.html`;
+    return `${path}/${this.item.type}-sheet.html`;
   }
 
   /* -------------------------------------------- */

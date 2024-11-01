@@ -10,9 +10,8 @@ export class CronicasItem extends Item {
     super.prepareData();
 
     // Get the Item's data
-    const itemData = this.data;
-    const actorData = this.actor ? this.actor.data : {};
-    const data = itemData.data;
-
+    const itemData = this.system;
+    const actorData = this.actor ? this.actor.system : {};
+    const data = itemData.system;
   }
 }

@@ -23,10 +23,10 @@ export class CronicasActorSheet extends ActorSheet {
   getData(options) {
     const data = super.getData(options);
     data.dtypes = ["String", "Number", "Boolean"];
-    for (let attr of Object.values(data.data.data.atributos)) {
+    for (let attr of Object.values(data.data.system.atributos)) {
       attr.isCheckbox = attr.dtype == "Boolean";
     }
-    for (let [key, atributo] of Object.entries(data.data.data.atributos)) {
+    for (let [key, atributo] of Object.entries(data.data.system.atributos)) {
       for (let [key, especializacao] of Object.entries(atributo.especializacoes)) {
         especializacao.label = game.i18n.localize(CordelRPG.attributes[key]);
       }
@@ -34,7 +34,7 @@ export class CronicasActorSheet extends ActorSheet {
     }
 
     // Prepare items.
-    if (this.actor.data.type == 'character') {
+    if (this.actor.type == 'character') {
       this._prepareCharacterItems(data);
     }
 
@@ -49,7 +49,7 @@ export class CronicasActorSheet extends ActorSheet {
    * @return {undefined}
    */
   _prepareCharacterItems(sheetData) {
-    const actorData = sheetData.actor.data;
+    const actorData = sheetData.actor;
 
     // Initialize containers.
     const vantagens = [];
@@ -83,7 +83,7 @@ export class CronicasActorSheet extends ActorSheet {
 
   /** @override */
   activateListeners(html) {
-    const data = this.getData().data.data;
+    const data = this.getData().data.system;
     super.activateListeners(html);
 
     // Everything below here is only needed if the sheet is editable
@@ -150,9 +150,9 @@ export class CronicasActorSheet extends ActorSheet {
   _onToggleCarried(ev) {
     const li = $(ev.currentTarget).parents(".item");
     const item = this.actor.items.get(li.data("itemId"));
-    if (!item.data.data.equipada) {
-      item.data.data.guardado = !item.data.data.guardado;
-      item.update({ "data.guardado": item.data.data.guardado });
+    if (!item.system.equipada) {
+      item.system.guardado = !item.system.guardado;
+      item.update({ "data.guardado": item.system.guardado });
     }
   }
 
@@ -161,9 +161,9 @@ export class CronicasActorSheet extends ActorSheet {
   _onToggleEquipped(ev) {
     const li = $(ev.currentTarget).parents(".item");
     const item = this.actor.items.get(li.data("itemId"));
-    if (!item.data.data.guardado) {
-      item.data.data.equipada = !item.data.data.equipada;
-      item.update({ "data.equipada": item.data.data.equipada });
+    if (!item.system.guardado) {
+      item.system.equipada = !item.system.equipada;
+      item.update({ "data.equipada": item.system.equipada });
     }
   }
 
