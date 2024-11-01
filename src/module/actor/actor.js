@@ -18,7 +18,6 @@ export class CronicasActor extends Actor {
    * Calculate Character attributes according to his actual points and penalities
    */
   _evaluateAttributes() {
-    const data = this.data.data;
     for (let [key, atributo] of Object.entries(data.atributos)) {
       atributo.total = atributo.valor + atributo.outros - data.penalidades.ferimento;
     }
@@ -28,7 +27,6 @@ export class CronicasActor extends Actor {
    * Prepare Character health bar and suffering status
    */
   _evaluateHealth() {
-    const data = this.data.data;
     const parrudice = data.atributos.parrudice.valor;
 
     if (data.attributes.vigor.max != (1 + parrudice)) {

@@ -10,7 +10,7 @@ export async function prepRoll(event, item, actor = null, actionType = {}) {
   let itemDt;
 
   if (item.data) {
-    itemDt = item.data.data;
+    itemDt = item.system;
   }
 
   let templateData = {
@@ -20,7 +20,7 @@ export async function prepRoll(event, item, actor = null, actionType = {}) {
   };
 
   if (itemDt && itemDt.dano && (actionType == 'padrao' || actionType == 'total' || actionType == 'multiplo')) {
-    templateData.rollDano = actor.data.data.atributos[itemDt.atributoDano].total;
+    templateData.rollDano = actor.system.atributos[itemDt.atributoDano].total;
     templateData.rollDano += itemDt.dano;
   }
 
@@ -71,7 +71,7 @@ export async function prepRoll(event, item, actor = null, actionType = {}) {
     }
   } else {
     templateData.title = item.name;
-    templateData.details = item.data.data.descricao;
+    templateData.details = item.system.descricao;
     rollCordel(formula, actor, templateData, actionType);
   }
 }
@@ -201,8 +201,8 @@ function rollCordel(roll, actor, templateData, actionType = {}) {
 
 /* Add hook to calculate number of success and change the total of the roll */
 Hooks.on('renderChatMessage', (message, html, data) => {
-  if (!message.roll || message.data.content.includes(game.i18n.localize('CordelRPG.iniciativa'))) return;
-  if (message.data.flavor && message.data.flavor.includes('Initiative')) return;
+  if (!message.roll || message.content.includes(game.i18n.localize('CordelRPG.iniciativa'))) return;
+  if (message.flavor && message.flavor.includes('Initiative')) return;
 
   let sucessos = Number(html.find('.valor-dificuldade').text());
   sucessos += Number(message.roll.result);
