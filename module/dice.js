@@ -9,7 +9,7 @@ export async function prepRoll(event, item, actor = null, actionType = {}) {
     let rollMode = game.settings.get('core', 'rollMode');
     let itemDt;
   
-    if (item.data) {
+    if (item.system) {
       itemDt = item.system;
     }
   
