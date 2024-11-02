@@ -50,6 +50,7 @@
   },
   "primaryTokenAttribute": "attributes.vigor",
   "secondaryTokenAttribute": "",
+  "background": "systems/cordelrpg/assets/cordel-do-reino-do-sol-encantado.jpg",
   "url": "https://github.com/coppolaop/CordelRPG",
   "manifest": "https://raw.githubusercontent.com/coppolaop/CordelRPG/blob/main/system.json",
   "download": "https://github.com/coppolaop/CordelRPG/archive/main.zip",
