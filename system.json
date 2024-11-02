@@ -3,11 +3,10 @@
   "title": "Cordel do Reino do sol encantado",
   "description": "O sistema oficial do Cordel do Reino do sol encantado para FoundryVTT!",
   "version": "2.0.0",
-  "compatibleCoreVersion": "10",
   "compatibility": {
-    "minimum": 10,
-    "verified": "10.282",
-    "maximum": 12
+    "minimum": "10",
+    "verified": "12.331",
+    "maximum": "12"
   },
   "authors": [
     {
