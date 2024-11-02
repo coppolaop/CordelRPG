@@ -11,8 +11,8 @@ export class CronicasActorSheet extends ActorSheet {
     return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ["CordelRPG", "sheet", "actor"],
       template: "systems/CordelRPG/templates/actor/actor-sheet.html",
-      width: 490,
-      height: 715,
+      width: 510,
+      height: 740,
       tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "descricao" }]
     });
   }
@@ -152,7 +152,7 @@ export class CronicasActorSheet extends ActorSheet {
     const item = this.actor.items.get(li.data("itemId"));
     if (!item.system.equipada) {
       item.system.guardado = !item.system.guardado;
-      item.update({ "data.guardado": item.system.guardado });
+      item.update({ "guardado": item.system.guardado });
     }
   }
 
@@ -163,7 +163,7 @@ export class CronicasActorSheet extends ActorSheet {
     const item = this.actor.items.get(li.data("itemId"));
     if (!item.system.guardado) {
       item.system.equipada = !item.system.equipada;
-      item.update({ "data.equipada": item.system.equipada });
+      item.update({ "equipada": item.system.equipada });
     }
   }
 
