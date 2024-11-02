@@ -76,7 +76,7 @@ export async function prepRoll(event, item, actor = null, actionType = {}) {
     }
   }
   
-  function rollCordel(roll, actor, templateData, actionType = {}) {
+  async function rollCordel(roll, actor, templateData, actionType = {}) {
     // Render the roll
     let template = 'systems/CordelRPG/templates/chat/chat-card.html';
     // GM rolls.
@@ -88,6 +88,7 @@ export async function prepRoll(event, item, actor = null, actionType = {}) {
         actor: actor,
       }),
       flags: { 'core.canPopout': true },
+      rolls: [],
     };
   
     let rollMode = game.settings.get('core', 'rollMode');
@@ -150,12 +151,11 @@ export async function prepRoll(event, item, actor = null, actionType = {}) {
         formula = roll;
       } else if (Number(roll) !== NaN) {
         formula = null;
-        result = new Roll(roll).roll();
+        result = new Roll(roll).evaluateSync();
       }
       if (formula != null) {
         let roll = new Roll(`${formula}`);
-        roll.roll();
-        result = roll.result;
+        await roll.evaluate();
   
         if (templateData.title != null && actionType == 'iniciativa' && combate) {
           let combatente = combate.combatants.find((combatant) => combatant.actor.id == actor.id);
@@ -165,7 +165,7 @@ export async function prepRoll(event, item, actor = null, actionType = {}) {
           }
         }
   
-        chatData.roll = roll;
+        chatData.rolls.push(roll);
   
         // Render it.
         roll.render(rollTemplate).then((r) => {
@@ -201,16 +201,16 @@ export async function prepRoll(event, item, actor = null, actionType = {}) {
   
   /* Add hook to calculate number of success and change the total of the roll */
   Hooks.on('renderChatMessage', (message, html, data) => {
-    if (!message.roll || message.content.includes(game.i18n.localize('CordelRPG.iniciativa'))) return;
+    if (message.rolls.length==0 || message.content.includes(game.i18n.localize('CordelRPG.iniciativa'))) return;
     if (message.flavor && message.flavor.includes('Initiative')) return;
   
     let sucessos = Number(html.find('.valor-dificuldade').text());
-    sucessos += Number(message.roll.result);
+    sucessos += message.rolls[0]._total;
     let critico = false;
     let falha = false;
     let sucessoMsg = game.i18n.localize('CordelRPG.sucessoMsgPlural');
   
-    message.roll.dice[0].results.forEach(function (die) {
+    message.rolls[0].terms[0].results.forEach(function (die) {
       if (die.result == 1) {
         falha = true;
       } else if (die.result == 6) {
