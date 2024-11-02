@@ -1,0 +1,34 @@
+{
+  "name": "Incansável",
+  "type": "vantagem",
+  "img": "icons/commodities/treasure/medal-ribbon-silver-blue.webp",
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {
+    "core": {
+      "sourceId": "Item.AZqF9lKqlIhGVJaX"
+    }
+  },
+  "_id": "fL3JueIsTJ7UxRU9",
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "compendiumSource": null,
+    "duplicateSource": null
+  },
+  "ownership": {
+    "default": 0,
+    "2dYVQzkITWiUMIM7": 3
+  },
+  "system": {
+    "descricao": "+1D ou refaz teste falho para evitar Cansaço (Parrudice), o que permite ficar bem sem dormir uma noite.",
+    "especializacao": "",
+    "incremento": ""
+  },
+  "_key": "!items!fL3JueIsTJ7UxRU9"
+}

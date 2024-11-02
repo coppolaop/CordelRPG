@@ -7,7 +7,7 @@
   "compatibility": {
     "minimum": 10,
     "verified": "10.282",
-    "maximum": 11
+    "maximum": 12
   },
   "authors": [
     {
@@ -27,7 +27,7 @@
       "name": "vantagens",
       "label": "Vantagens",
       "system": "CordelRPG",
-      "path": "./packs/vantagens.db",
+      "path": "packs/vantagens",
       "type": "Item"
     }
   ],

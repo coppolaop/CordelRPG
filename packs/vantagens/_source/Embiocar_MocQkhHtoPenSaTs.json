@@ -1,0 +1,30 @@
+{
+  "name": "Embiocar",
+  "type": "vantagem",
+  "img": "icons/commodities/treasure/medal-ribbon-silver-blue.webp",
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_id": "MocQkhHtoPenSaTs",
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "compendiumSource": null,
+    "duplicateSource": null
+  },
+  "ownership": {
+    "default": 0,
+    "2dYVQzkITWiUMIM7": 3
+  },
+  "system": {
+    "descricao": "+1D ou refaz um teste mal sucedido para se esconder (Ligeireza com pressa ou Esperteza na calma).",
+    "especializacao": "",
+    "incremento": ""
+  },
+  "_key": "!items!MocQkhHtoPenSaTs"
+}
