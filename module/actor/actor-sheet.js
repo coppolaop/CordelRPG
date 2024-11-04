@@ -89,6 +89,7 @@ export class CronicasActorSheet extends ActorSheet {
     // Everything below here is only needed if the sheet is editable
     if (!this.options.editable) return;
 
+    html.find('.toggle-carried').click(this._onToggleCarried.bind(this));
 
     // Add Inventory Item
     html.find('.item-create').click(this._onItemCreate.bind(this));
@@ -150,21 +151,7 @@ export class CronicasActorSheet extends ActorSheet {
   _onToggleCarried(ev) {
     const li = $(ev.currentTarget).parents(".item");
     const item = this.actor.items.get(li.data("itemId"));
-    if (!item.system.equipada) {
-      item.system.guardado = !item.system.guardado;
-      item.update({ "guardado": item.system.guardado });
-    }
-  }
-
-  /* -------------------------------------------- */
-  //  
-  _onToggleEquipped(ev) {
-    const li = $(ev.currentTarget).parents(".item");
-    const item = this.actor.items.get(li.data("itemId"));
-    if (!item.system.guardado) {
-      item.system.equipada = !item.system.equipada;
-      item.update({ "equipada": item.system.equipada });
-    }
+    item.update({ "system.guardado": !item.system.guardado });
   }
 
   /**
