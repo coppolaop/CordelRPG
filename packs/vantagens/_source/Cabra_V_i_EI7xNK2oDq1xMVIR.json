@@ -1,0 +1,30 @@
+{
+  "name": "Cabra Véi",
+  "type": "vantagem",
+  "img": "icons/commodities/treasure/medal-ribbon-silver-blue.webp",
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_id": "EI7xNK2oDq1xMVIR",
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "compendiumSource": null,
+    "duplicateSource": null
+  },
+  "ownership": {
+    "default": 0,
+    "2dYVQzkITWiUMIM7": 3
+  },
+  "system": {
+    "descricao": "+1D ou refaz um teste ruim para obter alguma informação sobre o Reino do Sol Encantado (Estudo).",
+    "especializacao": "",
+    "incremento": ""
+  },
+  "_key": "!items!EI7xNK2oDq1xMVIR"
+}

@@ -1,0 +1,30 @@
+{
+  "name": "Elegança",
+  "type": "vantagem",
+  "img": "icons/commodities/treasure/medal-ribbon-silver-blue.webp",
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "flags": {},
+  "_id": "A05h3CZYYZ18yX9t",
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": null,
+    "systemVersion": null,
+    "createdTime": null,
+    "modifiedTime": null,
+    "lastModifiedBy": null,
+    "compendiumSource": null,
+    "duplicateSource": null
+  },
+  "ownership": {
+    "default": 0,
+    "2dYVQzkITWiUMIM7": 3
+  },
+  "system": {
+    "descricao": "+1D ou refaz teste perdido de contato social polido (Esperteza) com quem aprecia o bom gosto.",
+    "especializacao": "",
+    "incremento": ""
+  },
+  "_key": "!items!A05h3CZYYZ18yX9t"
+}
