@@ -2,11 +2,10 @@
   "id": "CordelRPG",
   "title": "Cordel do Reino do sol encantado",
   "description": "O sistema oficial do Cordel do Reino do sol encantado para FoundryVTT!",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "compatibility": {
     "minimum": "10",
-    "verified": "13.351",
-    "maximum": "13"
+    "verified": "14.361"
   },
   "authors": [
     {
@@ -51,7 +50,7 @@
   "secondaryTokenAttribute": "",
   "background": "systems/CordelRPG/assets/cordel-do-reino-do-sol-encantado.jpg",
   "url": "https://github.com/coppolaop/CordelRPG",
-  "manifest": "https://raw.githubusercontent.com/coppolaop/CordelRPG/2.1.0/system.json",
-  "download": "https://github.com/coppolaop/CordelRPG/archive/2.1.0.zip",
+  "manifest": "https://raw.githubusercontent.com/coppolaop/CordelRPG/2.2.0/system.json",
+  "download": "https://github.com/coppolaop/CordelRPG/archive/2.2.0.zip",
   "license": "LICENSE.txt"
 }

@@ -1,6 +1,6 @@
 {
   "name": "cordelrpg",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "CSS compiler for the Cordel do reino do sol encantado system",
   "scripts": {
     "build": "gulp",
